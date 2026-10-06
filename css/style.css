@@ -247,8 +247,9 @@ em { font-style: italic; }
 /* 스크롤 등장 — JS가 .is-in 클래스를 붙입니다 */
 .js .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1.1s var(--ease-out), transform 1.1s var(--ease-out); }
 .js .reveal.is-in { opacity: 1; transform: none; }
-.js .reveal-img { clip-path: inset(100% 0 0 0); transition: clip-path 1.4s var(--ease-io); }
-.js .reveal-img.is-in { clip-path: inset(0 0 0 0); }
+/* 이미지 박스 자체가 아니라 안쪽(배경·사진)을 가려야 스크롤 감지가 정상 작동합니다 */
+.js .reveal-img::before, .js .reveal-img .ph-media { clip-path: inset(100% 0 0 0); transition: clip-path 1.4s var(--ease-io); }
+.js .reveal-img.is-in::before, .js .reveal-img.is-in .ph-media { clip-path: inset(0 0 0 0); }
 .js .reveal-line { transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-io) .2s; }
 .js .reveal-line.is-in { transform: scaleX(1); }
 .albums .reveal:nth-child(4n+2) { transition-delay: .1s; }
@@ -286,5 +287,5 @@ em { font-style: italic; }
 /* 모션 줄이기 설정 사용자 배려 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal, .js .reveal-img, .js .reveal-line { opacity: 1; transform: none; clip-path: none; }
+  .js .reveal, .js .reveal-img::before, .js .reveal-img .ph-media, .js .reveal-line { opacity: 1; transform: none; clip-path: none; }
 }
