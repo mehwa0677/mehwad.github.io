@@ -22,8 +22,10 @@ brand-site/
 | story.jpg | 브랜드 스토리 | 3:4 |
 | logo.png | 상단·하단 로고 (밝은 색, 투명 배경) | 가로형 |
 | member-01.jpg ~ member-05.jpg | SCENTS 멤버 사진 (WONI·MINAMI·LIV·MAY·ZENA 순) | 4:5 |
-| album-01.jpg ~ album-12.jpg | ALBUM 커버 | 1:1 |
+| album-01.jpg ~ album-16.jpg | ALBUM 커버 | 1:1 |
 | quote-bg.jpg | 인용문 배경 | 16:9 |
+| intro.mp4 | 대문 동영상 (MP4, 25MB 이하 권장) | 16:9 |
+| intro-poster.jpg | 대문 동영상 로딩 전 이미지 (선택) | 16:9 |
 
 ## GitHub Pages 배포
 
@@ -38,3 +40,9 @@ brand-site/
 - **포인트 색상**: `css/style.css` 상단 `--accent`
 - **텍스트**: `index.html`의 `[대괄호]` 부분
 - **이메일 폼**: 현재는 데모입니다. 실제 수신이 필요하면 [Formspree](https://formspree.io) 등을 연결하세요.
+
+## 멤버 상세 페이지
+
+- SCENTS의 멤버 사진을 누르면 `member.html?id=멤버아이디` 로 이동합니다.
+- 상세 페이지 내용(포지션·생일·소개글)은 **`js/members.js`** 한 파일에서 수정합니다.
+- 사진은 메인과 같은 `member-01.jpg` ~ `member-05.jpg`를 사용합니다.

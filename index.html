@@ -9,9 +9,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=6">
+  <!-- 대문: 이번 방문(탭)에서 처음 열 때만 표시 -->
+  <script>
+    try { if (!sessionStorage.getItem('introSeen')) document.documentElement.classList.add('intro-active'); }
+    catch (e) { document.documentElement.classList.add('intro-active'); }
+  </script>
 </head>
 <body>
+
+  <!-- ============ INTRO (대문) ============ -->
+  <!-- 동영상: images/intro.mp4 / 동영상 로딩 전 보일 이미지: images/intro-poster.jpg -->
+  <div class="intro" id="intro" aria-label="인트로">
+    <video class="intro-video" id="introVideo" src="images/intro.mp4" poster="images/intro-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+    <div class="intro-shade"></div>
+
+    <div class="intro-center">
+      <span class="logo intro-logo">
+        <img class="logo-img" src="images/logo.png" alt="RESCENE">
+        <span class="logo-text en">RESCENE</span>
+      </span>
+      <p class="intro-tag en">A scent brings back the scene.</p>
+    </div>
+
+    <button class="intro-sound" id="introSound" type="button" aria-pressed="false">SOUND OFF</button>
+
+    <button class="intro-enter" id="introEnter" type="button">
+      <span class="intro-enter-text">CLICK OR DRAG UP TO ENTER</span>
+      <span class="intro-enter-line" aria-hidden="true"></span>
+    </button>
+  </div>
 
   <!-- ============ NAV ============ -->
   <header class="header">
@@ -115,7 +142,7 @@
       <!-- 사진이 왼쪽으로 계속 흐릅니다. 두 번째 묶음은 끊김 없는 반복용 복사본이니 똑같이 맞춰주세요 -->
       <div class="card-marquee reveal">
         <div class="card-track">
-            <a href="#contact" class="card">
+            <a href="member.html?id=woni" class="card">
               <div class="ph" data-label="Member 01 · 4:5">
                 <img class="ph-media" src="images/member-01.jpg" alt="WONI 사진">
               </div>
@@ -127,7 +154,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card">
+            <a href="member.html?id=minami" class="card">
               <div class="ph" data-label="Member 02 · 4:5">
                 <img class="ph-media" src="images/member-02.jpg" alt="MINAMI 사진">
               </div>
@@ -139,7 +166,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card">
+            <a href="member.html?id=liv" class="card">
               <div class="ph" data-label="Member 03 · 4:5">
                 <img class="ph-media" src="images/member-03.jpg" alt="LIV 사진">
               </div>
@@ -151,7 +178,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card">
+            <a href="member.html?id=may" class="card">
               <div class="ph" data-label="Member 04 · 4:5">
                 <img class="ph-media" src="images/member-04.jpg" alt="MAY 사진">
               </div>
@@ -163,7 +190,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card">
+            <a href="member.html?id=zena" class="card">
               <div class="ph" data-label="Member 05 · 4:5">
                 <img class="ph-media" src="images/member-05.jpg" alt="ZENA 사진">
               </div>
@@ -176,7 +203,7 @@
               </div>
             </a>
             <!-- ↓ 반복용 복사본 (위와 동일하게 유지) -->
-            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+            <a href="member.html?id=woni" class="card" aria-hidden="true" tabindex="-1">
               <div class="ph" data-label="Member 01 · 4:5">
                 <img class="ph-media" src="images/member-01.jpg" alt="">
               </div>
@@ -188,7 +215,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+            <a href="member.html?id=minami" class="card" aria-hidden="true" tabindex="-1">
               <div class="ph" data-label="Member 02 · 4:5">
                 <img class="ph-media" src="images/member-02.jpg" alt="">
               </div>
@@ -200,7 +227,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+            <a href="member.html?id=liv" class="card" aria-hidden="true" tabindex="-1">
               <div class="ph" data-label="Member 03 · 4:5">
                 <img class="ph-media" src="images/member-03.jpg" alt="">
               </div>
@@ -212,7 +239,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+            <a href="member.html?id=may" class="card" aria-hidden="true" tabindex="-1">
               <div class="ph" data-label="Member 04 · 4:5">
                 <img class="ph-media" src="images/member-04.jpg" alt="">
               </div>
@@ -224,7 +251,7 @@
                 <span class="arrow" aria-hidden="true">→</span>
               </div>
             </a>
-            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+            <a href="member.html?id=zena" class="card" aria-hidden="true" tabindex="-1">
               <div class="ph" data-label="Member 05 · 4:5">
                 <img class="ph-media" src="images/member-05.jpg" alt="">
               </div>
@@ -412,8 +439,8 @@
         </div>
         <div class="footer-col">
           <span class="footer-label">FOLLOW</span>
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
-          <a href="#" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.instagram.com/rescene_official" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@rescene_official" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -423,6 +450,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

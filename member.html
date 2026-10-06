@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MEMBER — RESCENE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+
+  <!-- ============ NAV (메인 페이지와 동일) ============ -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo" aria-label="RESCENE 홈">
+        <img class="logo-img" src="images/logo.png" alt="RESCENE">
+        <span class="logo-text en">RESCENE</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+
+      <div class="menu" id="menu">
+        <a class="navlink" href="index.html#story">WHO</a>
+        <a class="navlink" href="index.html#collection">SCENTS</a>
+        <a class="navlink" href="index.html#craft">ALBUM</a>
+        <a class="navlink" href="index.html#contact">OFFICIAL</a>
+        <a href="index.html#contact" class="btn btn-ghost btn-sm">더뮤즈</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ MEMBER DETAIL ============ -->
+  <!-- 내용은 js/members.js 에서 수정하세요 -->
+  <main class="member-page container">
+    <a href="index.html#collection" class="back-link fade">← 멤버 전체 보기</a>
+
+    <section class="member-detail">
+      <div class="ph hero-img member-photo" id="memberPhotoBox" data-label="Member · 4:5">
+        <img class="ph-media" id="memberPhoto" src="" alt="">
+      </div>
+
+      <div class="member-info">
+        <p class="eyebrow fade" id="memberCount">MEMBER</p>
+        <h1 class="member-name en">
+          <span class="line"><span id="memberName"></span></span>
+        </h1>
+        <p class="member-line kr fade" id="memberLine"></p>
+        <span class="rule fade"></span>
+
+        <dl class="member-facts fade-2">
+          <div><dt>POSITION</dt><dd id="memberPosition"></dd></div>
+          <div><dt>BIRTH</dt><dd id="memberBirth"></dd></div>
+        </dl>
+
+        <p class="body-kr kr fade-2" id="memberIntro"></p>
+      </div>
+    </section>
+
+    <!-- 이전 · 다음 멤버 -->
+    <nav class="member-nav" aria-label="다른 멤버 보기">
+      <a href="#" id="prevMember" class="member-nav-link">
+        <span class="member-nav-label">← PREV</span>
+        <span class="member-nav-name en" id="prevName"></span>
+      </a>
+      <a href="#" id="nextMember" class="member-nav-link is-next">
+        <span class="member-nav-label">NEXT →</span>
+        <span class="member-nav-name en" id="nextName"></span>
+      </a>
+    </nav>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> ⓒThe Muze Entertainment ALL RIGHTS RESERVED.</span>
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/rescene_official" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@rescene_official" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/members.js?v=5"></script>
+  <script src="js/member.js?v=5"></script>
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>
