@@ -8,9 +8,9 @@ const MEMBERS = [
     name: 'WONI',
     photo: 'images/member-01.jpg',
     line: '리센느리더. 섹시를 추구하는 귀요미 04 맞언니',
-    position: '[리더 · 포지션]',
-    birth: '[YYYY.MM.DD]',
-    intro: '[WONI를 소개하는 글을 3~4줄로 적어주세요.]'
+    position: '[리더 · 서브보컬]',
+    birth: '[2004.05.25]',
+    intro: '[RESCENE의 멤버이자 리더. 거제소녀. <br>중2때 성지뱀장어라는 댄스 동아리 창설후 초대회장으로 활동. <br><strong>멤버들의 교통정리담당</strong>]'
   },
   {
     id: 'minami',
