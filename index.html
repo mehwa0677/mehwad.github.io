@@ -16,7 +16,10 @@
   <!-- ============ NAV ============ -->
   <header class="header">
     <nav class="nav container">
-      <a href="#top" class="logo en">[BRAND]</a>
+      <a href="#top" class="logo" aria-label="RESCENE 홈">
+        <img class="logo-img" src="images/logo.png" alt="RESCENE">
+        <span class="logo-text en">RESCENE</span>
+      </a>
 
       <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
         <span></span><span></span>
@@ -107,68 +110,228 @@
           <a href="#contact" class="navlink reveal">전체 컬렉션 보기 →</a>
         </div>
 
-        <div class="cards">
-          <a href="#contact" class="card reveal">
-            <div class="ph" data-label="Product 01 · 4:5">
-              <img class="ph-media" src="images/product-01.jpg" alt="[제품 1 이미지 설명]">
-            </div>
-            <div class="card-meta">
-              <div>
-                <span class="card-name en">[Product One]</span>
-                <span class="card-desc">[제품 한 줄 설명]</span>
+      </div>
+
+      <!-- 사진이 왼쪽으로 계속 흐릅니다. 두 번째 묶음은 끊김 없는 반복용 복사본이니 똑같이 맞춰주세요 -->
+      <div class="card-marquee reveal">
+        <div class="card-track">
+            <a href="#contact" class="card">
+              <div class="ph" data-label="Member 01 · 4:5">
+                <img class="ph-media" src="images/member-01.jpg" alt="WONI 사진">
               </div>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a href="#contact" class="card reveal">
-            <div class="ph" data-label="Product 02 · 4:5">
-              <img class="ph-media" src="images/product-02.jpg" alt="[제품 2 이미지 설명]">
-            </div>
-            <div class="card-meta">
-              <div>
-                <span class="card-name en">[Product Two]</span>
-                <span class="card-desc">[제품 한 줄 설명]</span>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">WONI</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
               </div>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a href="#contact" class="card reveal">
-            <div class="ph" data-label="Product 03 · 4:5">
-              <img class="ph-media" src="images/product-03.jpg" alt="[제품 3 이미지 설명]">
-            </div>
-            <div class="card-meta">
-              <div>
-                <span class="card-name en">[Product Three]</span>
-                <span class="card-desc">[제품 한 줄 설명]</span>
+            </a>
+            <a href="#contact" class="card">
+              <div class="ph" data-label="Member 02 · 4:5">
+                <img class="ph-media" src="images/member-02.jpg" alt="MINAMI 사진">
               </div>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">MINAMI</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card">
+              <div class="ph" data-label="Member 03 · 4:5">
+                <img class="ph-media" src="images/member-03.jpg" alt="LIV 사진">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">LIV</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card">
+              <div class="ph" data-label="Member 04 · 4:5">
+                <img class="ph-media" src="images/member-04.jpg" alt="MAY 사진">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">MAY</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card">
+              <div class="ph" data-label="Member 05 · 4:5">
+                <img class="ph-media" src="images/member-05.jpg" alt="ZENA 사진">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">ZENA</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <!-- ↓ 반복용 복사본 (위와 동일하게 유지) -->
+            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+              <div class="ph" data-label="Member 01 · 4:5">
+                <img class="ph-media" src="images/member-01.jpg" alt="">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">WONI</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+              <div class="ph" data-label="Member 02 · 4:5">
+                <img class="ph-media" src="images/member-02.jpg" alt="">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">MINAMI</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+              <div class="ph" data-label="Member 03 · 4:5">
+                <img class="ph-media" src="images/member-03.jpg" alt="">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">LIV</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+              <div class="ph" data-label="Member 04 · 4:5">
+                <img class="ph-media" src="images/member-04.jpg" alt="">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">MAY</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <a href="#contact" class="card" aria-hidden="true" tabindex="-1">
+              <div class="ph" data-label="Member 05 · 4:5">
+                <img class="ph-media" src="images/member-05.jpg" alt="">
+              </div>
+              <div class="card-meta">
+                <div>
+                  <span class="card-name en">ZENA</span>
+                  <span class="card-desc">[멤버 한 줄 소개]</span>
+                </div>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ PHILOSOPHY ============ -->
+    <!-- ============ ALBUM ============ -->
     <section id="craft" class="craft container stack-lg">
-      <div class="stack-sm narrow">
-        <p class="eyebrow reveal">03 — PHILOSOPHY</p>
-        <h2 class="h2-kr kr reveal">[브랜드가 지키는<br>세 가지 원칙]</h2>
+      <div class="section-head">
+        <div class="stack-sm">
+          <p class="eyebrow reveal">03 — DISCOGRAPHY</p>
+          <h2 class="h2-en en reveal">The <em>Album</em></h2>
+        </div>
       </div>
-      <div class="values">
-        <article class="value reveal">
-          <span class="value-no en">01</span>
-          <h3 class="kr">[원칙 1 — 예: 소재]</h3>
-          <p>[이 원칙이 제품에 어떻게 드러나는지 2줄 내외로 적어주세요.]</p>
+      <div class="albums">
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 01 · 1:1">
+            <img class="ph-media" src="images/album-01.jpg" alt="[앨범 1 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 01]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
         </article>
-        <article class="value reveal">
-          <span class="value-no en">02</span>
-          <h3 class="kr">[원칙 2 — 예: 공정]</h3>
-          <p>[이 원칙이 제품에 어떻게 드러나는지 2줄 내외로 적어주세요.]</p>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 02 · 1:1">
+            <img class="ph-media" src="images/album-02.jpg" alt="[앨범 2 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 02]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
         </article>
-        <article class="value reveal">
-          <span class="value-no en">03</span>
-          <h3 class="kr">[원칙 3 — 예: 지속성]</h3>
-          <p>[이 원칙이 제품에 어떻게 드러나는지 2줄 내외로 적어주세요.]</p>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 03 · 1:1">
+            <img class="ph-media" src="images/album-03.jpg" alt="[앨범 3 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 03]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 04 · 1:1">
+            <img class="ph-media" src="images/album-04.jpg" alt="[앨범 4 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 04]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 05 · 1:1">
+            <img class="ph-media" src="images/album-05.jpg" alt="[앨범 5 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 05]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 06 · 1:1">
+            <img class="ph-media" src="images/album-06.jpg" alt="[앨범 6 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 06]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 07 · 1:1">
+            <img class="ph-media" src="images/album-07.jpg" alt="[앨범 7 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 07]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 08 · 1:1">
+            <img class="ph-media" src="images/album-08.jpg" alt="[앨범 8 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 08]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 09 · 1:1">
+            <img class="ph-media" src="images/album-09.jpg" alt="[앨범 9 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 09]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 10 · 1:1">
+            <img class="ph-media" src="images/album-10.jpg" alt="[앨범 10 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 10]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 11 · 1:1">
+            <img class="ph-media" src="images/album-11.jpg" alt="[앨범 11 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 11]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
+        </article>
+        <article class="album reveal">
+          <div class="ph album-cover" data-label="Album 12 · 1:1">
+            <img class="ph-media" src="images/album-12.jpg" alt="[앨범 12 커버]">
+          </div>
+          <h3 class="album-title en">[Album Title 12]</h3>
+          <p class="album-date">[YYYY.MM.DD]</p>
         </article>
       </div>
     </section>
@@ -204,7 +367,10 @@
     <div class="container stack-lg">
       <div class="footer-grid">
         <div class="stack-sm">
-          <span class="logo en">[BRAND]</span>
+          <span class="logo">
+            <img class="logo-img" src="images/logo.png" alt="RESCENE">
+            <span class="logo-text en">RESCENE</span>
+          </span>
           <span class="muted">[한 줄 브랜드 슬로건]</span>
         </div>
         <div class="footer-col">

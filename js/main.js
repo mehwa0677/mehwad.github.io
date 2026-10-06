@@ -18,6 +18,13 @@ document.querySelectorAll('.ph-media').forEach((img) => {
   }
 });
 
+/* 1-1. 로고 — logo.png가 없으면 글자 로고로 대체 */
+document.querySelectorAll('.logo-img').forEach((img) => {
+  const fail = () => { img.closest('.logo').classList.add('no-img'); img.remove(); };
+  if (img.complete) { if (img.naturalWidth === 0) fail(); }
+  else img.addEventListener('error', fail);
+});
+
 /* 2. 스크롤 등장 애니메이션 */
 const revealEls = document.querySelectorAll('.reveal, .reveal-img, .reveal-line');
 if ('IntersectionObserver' in window && !reduceMotion) {
@@ -49,15 +56,6 @@ function updateParallax() {
   });
 }
 
-/* 4. 헤더 — 아래로 스크롤하면 숨기고, 위로 올리면 표시 */
-const header = document.querySelector('.header');
-let lastY = window.scrollY;
-function updateHeader() {
-  const y = window.scrollY;
-  const menuOpen = document.getElementById('menu').classList.contains('is-open');
-  header.classList.toggle('is-hidden', y > lastY && y > 200 && !menuOpen);
-  lastY = y;
-}
 
 let ticking = false;
 window.addEventListener('scroll', () => {
@@ -65,7 +63,6 @@ window.addEventListener('scroll', () => {
   ticking = true;
   requestAnimationFrame(() => {
     if (!reduceMotion) updateParallax();
-    updateHeader();
     ticking = false;
   });
 }, { passive: true });

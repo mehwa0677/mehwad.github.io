@@ -20,7 +20,9 @@ brand-site/
 |---|---|---|
 | hero.jpg | 첫 화면 | 4:5 |
 | story.jpg | 브랜드 스토리 | 3:4 |
-| product-01.jpg ~ product-03.jpg | 컬렉션 카드 | 4:5 |
+| logo.png | 상단·하단 로고 (밝은 색, 투명 배경) | 가로형 |
+| member-01.jpg ~ member-05.jpg | SCENTS 멤버 사진 (WONI·MINAMI·LIV·MAY·ZENA 순) | 4:5 |
+| album-01.jpg ~ album-12.jpg | ALBUM 커버 | 1:1 |
 | quote-bg.jpg | 인용문 배경 | 16:9 |
 
 ## GitHub Pages 배포

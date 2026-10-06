@@ -21,7 +21,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body {
   margin: 0;
   background: var(--ground);
@@ -30,6 +30,7 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  padding-top: 76px;          /* 고정 상단바 높이만큼 */
 }
 img { display: block; max-width: 100%; }
 a { color: var(--ink); text-decoration: none; transition: color .3s; }
@@ -78,16 +79,18 @@ em { font-style: italic; }
 
 /* ---------- 헤더 ---------- */
 .header {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   background: rgba(14, 13, 11, .72);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(242, 238, 230, .08);
   transition: transform .5s var(--ease-io);
   animation: fadeIn 1.2s ease .2s both;
 }
-.header.is-hidden { transform: translateY(-100%); }
 .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.logo { font-size: 26px; letter-spacing: .02em; font-weight: 500; }
+.logo { display: inline-flex; align-items: center; font-size: 26px; letter-spacing: .02em; font-weight: 500; }
+.logo-img { height: 32px; width: auto; }           /* 로고 크기는 height 값으로 조절 */
+.logo-text { display: none; }
+.logo.no-img .logo-text { display: inline; }        /* logo.png가 없으면 글자 로고 표시 */
 .menu { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
 .menu-toggle { display: none; }
 
@@ -156,7 +159,10 @@ em { font-style: italic; }
 /* ---------- COLLECTION ---------- */
 .collection { background: var(--ground-2); padding: clamp(96px, 11vw, 160px) 0; }
 .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 32px; }
+.card-marquee { overflow: hidden; margin-top: 64px; }
+.card-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.card-marquee:hover .card-track { animation-play-state: paused; }   /* 마우스를 올리면 멈춤 */
+.card-track .card { flex: 0 0 clamp(240px, 24vw, 340px); margin-right: 32px; }  /* 간격은 margin으로 (끊김 없는 반복용) */
 .card { display: flex; flex-direction: column; gap: 22px; color: var(--ink); }
 .card:hover { color: var(--ink); }
 .card .ph { aspect-ratio: 4 / 5; }
@@ -171,11 +177,14 @@ em { font-style: italic; }
 
 /* ---------- PHILOSOPHY ---------- */
 .craft { padding-top: clamp(96px, 12vw, 180px); padding-bottom: clamp(96px, 12vw, 180px); }
-.values { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); border-top: 1px solid var(--line); }
-.value { display: flex; flex-direction: column; gap: 22px; padding: 44px 36px 44px 0; border-bottom: 1px solid var(--line); }
-.value-no { font-size: 64px; line-height: 1; font-style: italic; color: var(--accent); }
-.value h3 { margin: 0; font-size: 24px; font-weight: 500; }
-.value p { margin: 0; font-size: 15px; line-height: 1.85; color: var(--muted); max-width: 340px; }
+.albums { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 48px 32px; }
+.album { display: flex; flex-direction: column; gap: 10px; }
+.album-cover { aspect-ratio: 1 / 1; margin-bottom: 8px; transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out); }
+.album-cover::before, .album-cover .ph-media { transition: transform 1.2s var(--ease-out); }
+.album:hover .album-cover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(0,0,0,.8); }
+.album:hover .album-cover::before, .album:hover .album-cover .ph-media { transform: scale(1.05); }
+.album-title { margin: 0; font-size: 22px; font-weight: 400; }
+.album-date { margin: 0; font-size: 13px; letter-spacing: .12em; color: var(--muted); }
 
 /* ---------- QUOTE ---------- */
 .quote { min-height: 680px; display: flex; align-items: center; justify-content: center; }
@@ -242,8 +251,9 @@ em { font-style: italic; }
 .js .reveal-img.is-in { clip-path: inset(0 0 0 0); }
 .js .reveal-line { transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-io) .2s; }
 .js .reveal-line.is-in { transform: scaleX(1); }
-.cards .reveal:nth-child(2), .values .reveal:nth-child(2) { transition-delay: .12s; }
-.cards .reveal:nth-child(3), .values .reveal:nth-child(3) { transition-delay: .24s; }
+.albums .reveal:nth-child(4n+2) { transition-delay: .1s; }
+.albums .reveal:nth-child(4n+3) { transition-delay: .2s; }
+.albums .reveal:nth-child(4n+4) { transition-delay: .3s; }
 
 /* =========================================================
    MOBILE
@@ -269,7 +279,8 @@ em { font-style: italic; }
   .menu .btn { margin-top: 12px; }
 
   .badge { left: 16px; bottom: -40px; width: 104px; height: 104px; }
-  .value { padding-right: 0; }
+  .albums { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
+  .album-title { font-size: 17px; }
 }
 
 /* 모션 줄이기 설정 사용자 배려 */
