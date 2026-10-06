@@ -183,7 +183,7 @@ em { font-style: italic; }
 .album-cover::before, .album-cover .ph-media { transition: transform 1.2s var(--ease-out); }
 .album:hover .album-cover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(0,0,0,.8); }
 .album:hover .album-cover::before, .album:hover .album-cover .ph-media { transform: scale(1.05); }
-.album-title { margin: 0; font-size: 15px; font-weight: 400; }
+.album-title { margin: 0; font-family: var(--f-sans); font-size: 15px; font-weight: 500; line-height: 1.5; word-break: keep-all; }   /* 고딕체 */
 .album-date { margin: 0; font-size: 12px; letter-spacing: .12em; color: var(--muted); }
 
 /* ---------- QUOTE ---------- */
