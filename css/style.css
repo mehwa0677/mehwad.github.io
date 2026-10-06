@@ -183,7 +183,7 @@ em { font-style: italic; }
 .album-cover::before, .album-cover .ph-media { transition: transform 1.2s var(--ease-out); }
 .album:hover .album-cover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(0,0,0,.8); }
 .album:hover .album-cover::before, .album:hover .album-cover .ph-media { transform: scale(1.05); }
-.album-title { margin: 0; font-size: 22px; font-weight: 400; }
+.album-title { margin: 0; font-size: 17px; font-weight: 400; }
 .album-date { margin: 0; font-size: 13px; letter-spacing: .12em; color: var(--muted); }
 
 /* ---------- QUOTE ---------- */
@@ -280,7 +280,7 @@ em { font-style: italic; }
 
   .badge { left: 16px; bottom: -40px; width: 104px; height: 104px; }
   .albums { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
-  .album-title { font-size: 17px; }
+  .album-title { font-size: 14px; }
 }
 
 /* 모션 줄이기 설정 사용자 배려 */
