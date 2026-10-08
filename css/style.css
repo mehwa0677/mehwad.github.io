@@ -425,3 +425,10 @@ strong, b { font-weight: 700; color: var(--ink); }
 .collection { background: var(--ground-2); }
 .marquee { background: var(--ground-2); }
 .badge { box-shadow: 0 10px 30px -12px rgba(214,51,108,.35); }
+
+/* =========================================================
+   ABOUT PAGE (about.html) — 리센느 소개
+   ========================================================= */
+.about-photo { aspect-ratio: 3 / 4; }               /* 세로형 사진 */
+.about-body { display: flex; flex-direction: column; gap: 18px; max-width: 560px; }
+.about-body p { margin: 0; font-size: 17px; line-height: 1.95; color: var(--ink-soft); word-break: keep-all; }
