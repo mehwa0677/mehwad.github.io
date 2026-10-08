@@ -3,13 +3,17 @@
    색상은 :root 변수만 바꾸면 전체에 반영됩니다.
    ========================================================= */
 :root {
-  --ground: #0E0D0B;
-  --ground-2: #15130F;
-  --ink: #F2EEE6;
-  --ink-soft: #CFC9BE;
-  --muted: #A39D92;
-  --line: rgba(242, 238, 230, .14);
-  --accent: #C9A36A;          /* 포인트 색상 */
+  /* ---- 핑크 & 화이트 테마 ---- */
+  --ground: #FFFFFF;          /* 기본 배경 (흰색) */
+  --ground-2: #FFF0F5;        /* 구분 섹션 배경 (연한 핑크) */
+  --ink: #2E1A24;             /* 본문 글자 (짙은 자두색) */
+  --ink-soft: #5A3F4C;        /* 보조 글자 */
+  --muted: #7E5A69;           /* 흐린 글자 */
+  --line: rgba(214, 51, 108, .18);   /* 구분선 */
+  --accent: #D6336C;          /* 포인트 색상 (핑크) */
+  --accent-soft: #FFD3E2;     /* 연한 핑크 (배경·장식용) */
+  --placeholder: #FBE3EC;     /* 이미지 자리 배경 */
+  --logo-filter: brightness(0);  /* 흰 로고를 어둡게 표시. 로고가 이미 어두운/컬러면 none 으로 */
 
   --f-en: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
   --f-kr: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
@@ -80,9 +84,9 @@ em { font-style: italic; }
 /* ---------- 헤더 ---------- */
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(14, 13, 11, .72);
+  background: rgba(255, 255, 255, .82);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(242, 238, 230, .08);
+  border-bottom: 1px solid var(--line);
   transition: transform .5s var(--ease-io);
   animation: fadeIn 1.2s ease .2s both;
 }
@@ -95,12 +99,12 @@ em { font-style: italic; }
 .menu-toggle { display: none; }
 
 /* ---------- 이미지 자리 (이미지가 없으면 플레이스홀더 표시) ---------- */
-.ph { position: relative; overflow: hidden; background: #1A1815; }
+.ph { position: relative; overflow: hidden; background: var(--placeholder); }
 .ph::before {
   content: ''; position: absolute; inset: 0;
   background:
-    repeating-linear-gradient(135deg, rgba(242,238,230,.035) 0 1px, transparent 1px 14px),
-    radial-gradient(120% 90% at 30% 20%, #2A2621 0%, #15130F 70%);
+    repeating-linear-gradient(135deg, rgba(214,51,108,.06) 0 1px, transparent 1px 14px),
+    radial-gradient(120% 90% at 30% 20%, #FFF4F8 0%, #F9D6E3 75%);
 }
 .ph::after {
   content: attr(data-label);
@@ -181,14 +185,14 @@ em { font-style: italic; }
 .album { display: flex; flex-direction: column; gap: 10px; }
 .album-cover { aspect-ratio: 1 / 1; margin-bottom: 8px; transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out); }
 .album-cover::before, .album-cover .ph-media { transition: transform 1.2s var(--ease-out); }
-.album:hover .album-cover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(0,0,0,.8); }
+.album:hover .album-cover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(214,51,108,.45); }
 .album:hover .album-cover::before, .album:hover .album-cover .ph-media { transform: scale(1.05); }
 .album-title { margin: 0; font-family: var(--f-sans); font-size: 15px; font-weight: 500; line-height: 1.5; word-break: keep-all; }   /* 고딕체 */
 .album-date { margin: 0; font-size: 12px; letter-spacing: .12em; color: var(--muted); }
 
 /* ---------- QUOTE ---------- */
 .quote { min-height: 680px; display: flex; align-items: center; justify-content: center; }
-.quote-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,13,11,.55), rgba(14,13,11,.75)); }
+.quote-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(214,51,108,.35), rgba(46,26,36,.62)); }
 .quote blockquote { position: relative; z-index: 1; margin: 0; padding: 0 24px; max-width: 980px; text-align: center; display: flex; flex-direction: column; gap: 32px; align-items: center; }
 .quote blockquote p { margin: 0; font-size: clamp(36px, 5vw, 72px); line-height: 1.15; font-style: italic; font-weight: 400; }
 .quote cite { font-style: normal; font-size: 13px; letter-spacing: .28em; color: var(--accent); }
@@ -203,10 +207,10 @@ em { font-style: italic; }
 .contact-title em { color: var(--accent); }
 .field { display: flex; flex-direction: column; gap: 10px; }
 .field label { font-size: 12px; letter-spacing: .2em; color: var(--muted); }
-.field-row { display: flex; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(242,238,230,.3); padding-bottom: 10px; transition: border-color .3s; }
+.field-row { display: flex; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(46,26,36,.28); padding-bottom: 10px; transition: border-color .3s; }
 .field-row:focus-within { border-color: var(--accent); }
 .field input { flex: 1 1 220px; min-height: 48px; background: transparent; border: 0; outline: none; color: var(--ink); font: 300 18px var(--f-sans); }
-.field input::placeholder { color: #6E695F; }
+.field input::placeholder { color: #B394A2; }
 
 /* ---------- FOOTER ---------- */
 .footer { border-top: 1px solid var(--line); padding: 56px 0 40px; }
@@ -272,7 +276,7 @@ em { font-style: italic; }
     position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 8px;
     padding: 24px var(--gutter) 32px;
-    background: rgba(14, 13, 11, .97); border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, .98); border-bottom: 1px solid var(--line);
     clip-path: inset(0 0 100% 0); transition: clip-path .6s var(--ease-io);
   }
   .menu.is-open { clip-path: inset(0 0 0 0); }
@@ -335,7 +339,7 @@ em { font-style: italic; }
 .intro.is-snapping { transition: transform .5s var(--ease-out); }
 
 .intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.intro-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,13,11,.35) 0%, rgba(14,13,11,.15) 45%, rgba(14,13,11,.75) 100%); pointer-events: none; }
+.intro-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(214,51,108,.25) 0%, rgba(214,51,108,.05) 45%, rgba(46,26,36,.55) 100%); pointer-events: none; }
 
 .intro-center {
   position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
@@ -354,13 +358,13 @@ em { font-style: italic; }
   animation: fadeIn 1.2s ease 1s both;
 }
 .intro-enter:hover { color: var(--accent); }
-.intro-enter-line { position: relative; display: block; width: 1px; height: 56px; background: rgba(242,238,230,.25); overflow: hidden; }
+.intro-enter-line { position: relative; display: block; width: 1px; height: 56px; background: rgba(255,255,255,.4); overflow: hidden; }
 .intro-enter-line::after { content: ''; position: absolute; inset: 0; background: var(--accent); animation: drip 2.4s cubic-bezier(.7,0,.3,1) infinite; transform-origin: bottom; }
 
 .intro-sound {
   position: absolute; top: 24px; right: var(--gutter);
   min-height: 44px; padding: 0 18px; border-radius: 999px;
-  background: rgba(14,13,11,.4); border: 1px solid var(--line); color: var(--ink);
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.6); color: #fff;
   font: 500 11px/1 var(--f-sans); letter-spacing: .2em; cursor: pointer;
   animation: fadeIn 1.2s ease 1s both;
 }
@@ -380,13 +384,44 @@ em { font-style: italic; }
 .profile-table th, .profile-table td { padding: 16px 18px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.7; }
 .profile-table th {
   width: 112px; white-space: nowrap;
-  background: rgba(201, 163, 106, .08);              /* 포인트 색을 옅게 */
+  background: rgba(214, 51, 108, .07);              /* 포인트 색을 옅게 */
   color: var(--accent); font-weight: 500; font-size: 13px; letter-spacing: .08em;
 }
 .profile-table td { color: var(--ink); word-break: keep-all; white-space: pre-line; }   /* \n 줄바꿈 반영 */
 .profile-table tr { transition: background .3s; }
-.profile-table tr:hover td { background: rgba(242, 238, 230, .03); }
+.profile-table tr:hover td { background: rgba(214, 51, 108, .04); }
 @media (max-width: 480px) {
   .profile-table th { width: 84px; padding: 14px 12px; }
   .profile-table td { padding: 14px 12px; font-size: 14px; }
 }
+
+/* ---------- 강조 (<strong>, <b>) ---------- */
+strong, b { font-weight: 700; color: var(--ink); }
+
+/* =========================================================
+   핑크 & 화이트 테마 — 보정
+   ========================================================= */
+::selection { background: var(--accent-soft); color: var(--ink); }
+.btn-solid { color: #fff; }
+.btn-solid:hover { background: var(--ink); color: #fff; }
+
+/* 로고: 흰 배경 위에서 보이도록 */
+.header .logo-img, .footer .logo-img { filter: var(--logo-filter); }
+
+/* 사진 위 인용문은 흰 글자 */
+.quote blockquote p { color: #fff; }
+.quote cite { color: var(--accent-soft); }
+
+/* 대문: 핑크 배경 + 흰 글자 (동영상이 없을 때도 보이도록) */
+.intro-active .intro, .intro.is-leaving { background: linear-gradient(160deg, #F9A8C6 0%, #E2558A 55%, #B8245A 100%); }
+.intro-center, .intro-tag, .intro-logo .logo-text { color: #fff; }
+.intro-tag { color: rgba(255,255,255,.9); }
+.intro-enter { color: #fff; }
+.intro-enter:hover { color: var(--accent-soft); }
+.intro-enter-line::after { background: #fff; }
+.intro-sound:hover, .intro-sound[aria-pressed="true"] { border-color: #fff; color: #fff; background: rgba(255,255,255,.28); }
+
+/* 멤버 흐름 띠·카드 등 연한 핑크 포인트 */
+.collection { background: var(--ground-2); }
+.marquee { background: var(--ground-2); }
+.badge { box-shadow: 0 10px 30px -12px rgba(214,51,108,.35); }
