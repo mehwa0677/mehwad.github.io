@@ -10,6 +10,8 @@
   const total = MEMBERS.length;
   const pad = (n) => String(n).padStart(2, '0');
   const set = (sel, text) => { const el = document.querySelector(sel); if (el) el.textContent = text; };
+  // HTML 태그(<strong>, <em>, <br> 등)를 그대로 적용해서 넣기
+  const setHTML = (sel, html) => { const el = document.querySelector(sel); if (el) el.innerHTML = html; };
 
   document.title = `${m.name} — RESCENE`;
 
@@ -20,12 +22,12 @@
 
   set('#memberCount', `MEMBER ${pad(index + 1)} / ${pad(total)}`);
   set('#memberName', m.name);
-  set('#memberLine', m.line);
-  set('#pRealName', m.realName);
-  set('#pBirth', m.birth);
-  set('#pMbti', m.mbti);
-  set('#pIntro', m.intro);
-  set('#pCatchphrase', m.catchphrase);
+  setHTML('#memberLine', m.line);
+  setHTML('#pRealName', m.realName);
+  setHTML('#pBirth', m.birth);
+  setHTML('#pMbti', m.mbti);
+  setHTML('#pIntro', m.intro);
+  setHTML('#pCatchphrase', m.catchphrase);
 
   // 이전 · 다음 멤버
   const prev = MEMBERS[(index - 1 + total) % total];
