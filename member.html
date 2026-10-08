@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
@@ -52,12 +52,17 @@
         <p class="member-line kr fade" id="memberLine"></p>
         <span class="rule fade"></span>
 
-        <dl class="member-facts fade-2">
-          <div><dt>POSITION</dt><dd id="memberPosition"></dd></div>
-          <div><dt>BIRTH</dt><dd id="memberBirth"></dd></div>
-        </dl>
-
-        <p class="body-kr kr fade-2" id="memberIntro"></p>
+        <!-- 프로필 표 — 내용은 js/members.js 에서 수정 -->
+        <table class="profile-table fade-2">
+          <caption class="sr-only">멤버 프로필</caption>
+          <tbody>
+            <tr><th scope="row">본명</th><td id="pRealName"></td></tr>
+            <tr><th scope="row">출생</th><td id="pBirth"></td></tr>
+            <tr><th scope="row">MBTI</th><td id="pMbti"></td></tr>
+            <tr><th scope="row">소개</th><td id="pIntro"></td></tr>
+            <tr><th scope="row">유행어</th><td id="pCatchphrase"></td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -87,8 +92,8 @@
     </div>
   </footer>
 
-  <script src="js/members.js?v=5"></script>
-  <script src="js/member.js?v=5"></script>
-  <script src="js/main.js?v=5"></script>
+  <script src="js/members.js?v=7"></script>
+  <script src="js/member.js?v=7"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

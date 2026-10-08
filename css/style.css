@@ -373,3 +373,20 @@ em { font-style: italic; }
 .intro-active .hero-img, .intro-active .hero-img::before, .intro-active .hero-img .ph-media {
   animation-play-state: paused;
 }
+
+/* ---------- 멤버 프로필 표 ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.profile-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--accent); font-size: 15px; }
+.profile-table th, .profile-table td { padding: 16px 18px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.7; }
+.profile-table th {
+  width: 112px; white-space: nowrap;
+  background: rgba(201, 163, 106, .08);              /* 포인트 색을 옅게 */
+  color: var(--accent); font-weight: 500; font-size: 13px; letter-spacing: .08em;
+}
+.profile-table td { color: var(--ink); word-break: keep-all; white-space: pre-line; }   /* \n 줄바꿈 반영 */
+.profile-table tr { transition: background .3s; }
+.profile-table tr:hover td { background: rgba(242, 238, 230, .03); }
+@media (max-width: 480px) {
+  .profile-table th { width: 84px; padding: 14px 12px; }
+  .profile-table td { padding: 14px 12px; font-size: 14px; }
+}

@@ -21,9 +21,11 @@
   set('#memberCount', `MEMBER ${pad(index + 1)} / ${pad(total)}`);
   set('#memberName', m.name);
   set('#memberLine', m.line);
-  set('#memberPosition', m.position);
-  set('#memberBirth', m.birth);
-  set('#memberIntro', m.intro);
+  set('#pRealName', m.realName);
+  set('#pBirth', m.birth);
+  set('#pMbti', m.mbti);
+  set('#pIntro', m.intro);
+  set('#pCatchphrase', m.catchphrase);
 
   // 이전 · 다음 멤버
   const prev = MEMBERS[(index - 1 + total) % total];
