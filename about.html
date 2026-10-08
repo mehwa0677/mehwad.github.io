@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABOUT — RESCENE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,700&family=Noto+Serif+KR:wght@300;400;500;700&family=IBM+Plex+Sans+KR:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=10">
+</head>
+<body>
+
+  <!-- ============ NAV (메인 페이지와 동일) ============ -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo" aria-label="RESCENE 홈">
+        <img class="logo-img" src="images/logo.png" alt="RESCENE">
+        <span class="logo-text en">RESCENE</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+
+      <div class="menu" id="menu">
+        <a class="navlink" href="index.html#story">WHO</a>
+        <a class="navlink" href="index.html#collection">SCENTS</a>
+        <a class="navlink" href="index.html#craft">ALBUM</a>
+        <a class="navlink" href="index.html#contact">OFFICIAL</a>
+        <a href="index.html#contact" class="btn btn-ghost btn-sm">더뮤즈</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ ABOUT RESCENE ============ -->
+  <main class="member-page container">
+    <a href="index.html#story" class="back-link fade">← 메인으로 돌아가기</a>
+
+    <section class="member-detail">
+      <!-- 사진: images/rescene-intro.jpg (세로형) -->
+      <div class="ph hero-img about-photo" data-label="RESCENE · 3:4">
+        <img class="ph-media" src="images/rescene-intro.jpg" alt="리센느 단체 사진">
+      </div>
+
+      <div class="member-info">
+        <p class="eyebrow fade">ABOUT — SCENE STORY</p>
+        <h1 class="member-name en">
+          <span class="line"><span>RESCENE</span></span>
+        </h1>
+        <p class="member-line kr fade">향기로 다시 장면을 떠올리다</p>
+        <span class="rule fade"></span>
+
+        <!-- 소개글: 문단을 늘리려면 <p>…</p> 를 복사해서 추가하세요 -->
+        <div class="about-body kr fade-2">
+          <p>[리센느(RESCENE)는 'Re:Scene', 향기로 다시 장면을 떠올린다는 의미를 가진 5인조 걸그룹입니다.]</p>
+          <p>[데뷔 배경, 그룹의 콘셉트, 멤버 구성 등 리센느를 소개하는 글을 적어주세요.]</p>
+          <p>[대중의 마음속에 오래도록 남을 수 있는 음악의 향을 남길게요.]</p>
+        </div>
+
+        <a href="index.html#collection" class="btn btn-solid self-start fade-2">멤버 보러 가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> ⓒThe Muze Entertainment ALL RIGHTS RESERVED.</span>
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/rescene_official" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@rescene_official" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=10"></script>
+</body>
+</html>
