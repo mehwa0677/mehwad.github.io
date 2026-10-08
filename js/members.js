@@ -8,55 +8,55 @@ const MEMBERS = [
     id: 'woni',
     name: 'WONI',
     photo: 'images/profile-01.jpg',
-    line: '리센느리더. 섹시를 추구하는 귀요미 04 맞언니',
-    realName: '[본명 (한자, 영문)]',
-    birth: '[YYYY년 MM월 DD일 · 출생지]',
-    mbti: '[MBTI]',
-    intro: '[WONI 소개글 — 줄을 바꾸려면 \\n 을 넣으세요]',
-    catchphrase: '[유행어]'
+    line: '리센느리더. 섹시를 추구하는 귀요미, 맞언니',
+    realName: '[정원이 (Jeong Won-i)]',
+    birth: '[2004년 05월 25일 · 거제]',
+    mbti: '[ESFP]',
+    intro: '[거제가 낳은 딸로 리더를 담당하고 있다. 반려견 별이 엄마. \n 서브보컬]',
+    catchphrase: '[우이!. 우이쉬에~. 리센느 아세요?. 누구게?. 마! 니 뭐! 니 살림차리고 싶나?. 밥은 줍니까? 그냥 굶어라. 등등...]'
   },
   {
     id: 'minami',
     name: 'MINAMI',
     photo: 'images/profile-02.jpg',
-    line: '진짜 갸루는 아님, 팔방미인 오죠사마, 06멤버',
-    realName: '[본명 (한자, 영문)]',
-    birth: '[YYYY년 MM월 DD일 · 출생지]',
-    mbti: '[MBTI]',
-    intro: '[MINAMI 소개글 — 줄을 바꾸려면 \\n 을 넣으세요]',
-    catchphrase: '[유행어]'
+    line: '진짜 갸루는 아님, 팔방미인 오죠사마',
+    realName: '[이토 미나미 (Ito Minami)]',
+    birth: '[2006년 11월 29일 · 일본 치바현]',
+    mbti: '[ENFP]',
+    intro: '[리센느에서 셰프담당이며 어린 시절 철저한 예절교육을 받음. 한국사람이라 오해받을 만큼 한국어에 능통. 반려견 무아 엄마. \n 메인보컬]',
+    catchphrase: '[갸루귀신. 미남이. 오죠사마. 사막여우. 하프물범. 미나미나미. 등등...]'
   },
   {
     id: 'liv',
     name: 'LIV',
     photo: 'images/profile-03.jpg',
-    line: '노래도 노래지만 찐예능인, 메이랑 환장의 짝궁, 06멤버',
-    realName: '[본명 (한자, 영문)]',
-    birth: '[YYYY년 MM월 DD일 · 출생지]',
-    mbti: '[MBTI]',
-    intro: '[LIV 소개글 — 줄을 바꾸려면 \\n 을 넣으세요]',
-    catchphrase: '[유행어]'
+    line: '노래 잘하는 개그맨, 메이랑 환장의 짝궁',
+    realName: '[진경은 (Jin Kyung-eun)]',
+    birth: '[2006년 10월 11일 · 수원]',
+    mbti: '[ESFP]',
+    intro: '[실력만큼은 다른 대형기획사들로부터 합격통보를 받은 실력파. 개그욕심이 가장 많음. \n 메인보컬]',
+    catchphrase: '[너도? 아 나도!. 리브 바보 아니다. 안녕하세요..요↗?. 니가 뭔데?. 정수리 옮길 거에요. 등등...]'
   },
   {
     id: 'may',
     name: 'MAY',
     photo: 'images/profile-04.jpg',
-    line: '리브와 환장의 짝궁, 쫑알쫑알 메라디오DJ, 08막내',
-    realName: '[본명 (한자, 영문)]',
-    birth: '[YYYY년 MM월 DD일 · 출생지]',
-    mbti: '[MBTI]',
-    intro: '[MAY 소개글 — 줄을 바꾸려면 \\n 을 넣으세요]',
-    catchphrase: '[유행어]'
+    line: '리브와 환장의 짝궁, 쫑알쫑알 메라디오DJ',
+    realName: '[이예빈 (Lee Ye-vin)]',
+    birth: '[2008년 08월 19일 · 고양]',
+    mbti: '[INTP]',
+    intro: '[가챠와 다꾸를 좋아하함. 슬라임을 매우 좋아함. \n 서브보컬]',
+    catchphrase: '[기회는 그립감이 좋다. 불협도 화음이니까. 과해. 역병처럼 돌아요. 집쭝!. 등등...]'
   },
   {
     id: 'zena',
     name: 'ZENA',
     photo: 'images/profile-05.jpg',
     line: '하루 한번 세상이 무너지는, 으른이고 싶은, 까엉TV의 DJ 08막내',
-    realName: '[본명 (한자, 영문)]',
-    birth: '[YYYY년 MM월 DD일 · 출생지]',
-    mbti: '[MBTI]',
-    intro: '[ZENA 소개글 — 줄을 바꾸려면 \\n 을 넣으세요]',
-    catchphrase: '[유행어]'
+    realName: '[김가영(Kim Ga-yeong]',
+    birth: '[2008년 11월 27일 · 경주]',
+    mbti: '[INFP]',
+    intro: '[신라공주. 호피를 정말 좋아하며 원이는 이를 질색함. 매일 까엉이의 세상이 무너짐. \n 리드보컬]',
+    catchphrase: '[아뉘이이이!. 씨러!. 그게 뭔데요?. 내는 원래 고윤정 배우님을 싸랑해. 아, 그뤠여?. ㄷㅋㄷㅋ ㄷㄹㄱㄷ ㅅㄱㅂㅅㅇ~♬]'
   }
 ];
