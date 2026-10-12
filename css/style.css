@@ -432,3 +432,148 @@ strong, b { font-weight: 700; color: var(--ink); }
 .about-photo { aspect-ratio: 3 / 4; }               /* 세로형 사진 */
 .about-body { display: flex; flex-direction: column; gap: 18px; max-width: 560px; }
 .about-body p { margin: 0; font-size: 17px; line-height: 1.95; color: var(--ink-soft); word-break: keep-all; }
+/* =========================================================
+   LP PLAYER (앨범 수록곡 · 음악 재생) — js/player.js
+   ========================================================= */
+.albums .album { cursor: pointer; }
+.albums .album:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 2px; }
+html.lp-lock { overflow: hidden; }
+
+/* 배경 어둡게 */
+.lp-backdrop {
+  position: fixed; inset: 0; z-index: 89;
+  background: rgba(46, 26, 36, .35); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  opacity: 0; pointer-events: none; transition: opacity .5s ease;
+}
+.lp.is-open .lp-backdrop { opacity: 1; pointer-events: auto; }
+
+/* 오른쪽에서 '샥' 나오는 패널 */
+.lp-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 90;
+  width: min(480px, 100%); overflow-y: auto; overscroll-behavior: contain;
+  padding: 28px clamp(20px, 5vw, 32px) 40px;
+  background: var(--ground);
+  display: flex; flex-direction: column; gap: 22px;
+  transform: translateX(100%); visibility: hidden;
+  transition: transform .7s var(--ease-io), visibility 0s linear .7s, box-shadow .7s; outline: none;
+}
+.lp.is-open .lp-panel { transform: none; visibility: visible; transition: transform .7s var(--ease-io), visibility 0s, box-shadow .7s; box-shadow: -24px 0 60px -30px rgba(214, 51, 108, .45); }
+.lp-close {
+  align-self: flex-end; width: 44px; height: 44px; display: grid; place-items: center;
+  background: none; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); cursor: pointer;
+}
+.lp-close svg { width: 18px; height: 18px; }
+.lp-close:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- 턴테이블 (커버 + LP + 톤암) ---- */
+.lp-deck { --sz: clamp(170px, 46vw, 230px); position: relative; height: calc(var(--sz) + 8px); }
+.lp-sleeve {
+  position: absolute; left: 0; top: 0; z-index: 2; width: var(--sz); height: var(--sz); overflow: hidden;
+  background: linear-gradient(135deg, #F9A8C6, var(--accent));
+  box-shadow: 0 22px 40px -20px rgba(214, 51, 108, .6);
+}
+.lp-sleeve-img, .lp-label-img, .lp-mini-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.lp-disc {
+  position: absolute; z-index: 1; top: 4%; left: 4%;
+  width: calc(var(--sz) * .92); height: calc(var(--sz) * .92); border-radius: 50%;
+  transition: transform 1s var(--ease-out) .35s;          /* 패널이 열린 뒤 LP가 커버에서 빠져나옴 */
+}
+.lp.is-open .lp-disc { transform: translateX(calc(var(--sz) * .55)); }
+.lp-disc-spin {
+  position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 30%, rgba(0,0,0,.25) 30.5% 31.5%, transparent 32%),
+    repeating-radial-gradient(circle, #1a1519 0 1.4px, #2a2229 1.8px 3px);
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, .5), inset 0 0 0 3px #0f0b0e;
+  animation: lpSpin 2.4s linear infinite; animation-play-state: paused;
+}
+.lp.is-playing .lp-disc-spin { animation-play-state: running; }
+.lp-disc::after {                                          /* 빛 반사 (돌지 않아서 더 진짜 같음) */
+  content: ''; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 20deg, transparent 0 8%, rgba(255,255,255,.14) 14%, transparent 22% 54%, rgba(255,255,255,.09) 62%, transparent 70%);
+}
+.lp-label {
+  position: absolute; inset: 31%; border-radius: 50%; overflow: hidden;
+  background: linear-gradient(135deg, #F9A8C6, var(--accent));
+}
+.lp-label::after {                                         /* 가운데 구멍 */
+  content: ''; position: absolute; left: 50%; top: 50%; width: 9%; height: 9%;
+  transform: translate(-50%, -50%); border-radius: 50%; background: var(--ground);
+}
+
+.lp-arm {
+  position: absolute; z-index: 3; top: -6px; left: calc(var(--sz) * 1.42);
+  width: calc(var(--sz) * .28); height: calc(var(--sz) * .95); overflow: visible;
+  transform-origin: 50% 11%; transform: rotate(-10deg);
+  transition: transform .9s var(--ease-io);
+}
+.lp.is-playing .lp-arm { transform: rotate(20deg); }      /* 재생하면 바늘이 LP 위로 */
+.lp-arm-base { fill: var(--ground-2); stroke: var(--line); }
+.lp-arm-pivot { fill: var(--accent); }
+.lp-arm-rod { fill: none; stroke: #B9A3AE; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.lp-arm-head { fill: var(--ink); }
+
+/* ---- 앨범 정보 · 재생 컨트롤 ---- */
+.lp-info { display: flex; flex-direction: column; gap: 6px; }
+.lp-title { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.4; word-break: keep-all; }
+.lp-date { margin: 0; font-size: 12px; letter-spacing: .12em; color: var(--muted); }
+
+.lp-now { display: flex; flex-direction: column; gap: 12px; padding: 18px 20px; background: var(--ground-2); border-radius: 14px; }
+.lp-now-title { margin: 0; font-size: 15px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lp-progress { display: flex; align-items: center; gap: 10px; }
+.lp-seek { flex: 1; accent-color: var(--accent); height: 24px; cursor: pointer; }
+.lp-time { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 32px; }
+.lp-dur { text-align: right; }
+.lp-controls { display: flex; justify-content: center; align-items: center; gap: 18px; }
+.lp-btn { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 0; background: none; color: var(--ink); cursor: pointer; }
+.lp-btn svg { width: 20px; height: 20px; }
+.lp-btn:hover { color: var(--accent); }
+.lp-play { width: 56px; height: 56px; background: var(--accent); color: #fff; box-shadow: 0 10px 22px -10px rgba(214, 51, 108, .8); }
+.lp-play:hover { background: var(--ink); color: #fff; }
+.lp-play svg { width: 24px; height: 24px; }
+.lp-status { margin: 0; font-size: 12px; color: var(--accent); word-break: break-all; }
+.lp-status:empty { display: none; }
+
+/* ---- 수록곡 목록 ---- */
+.lp-tracks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.lp-track {
+  width: 100%; min-height: 54px; padding: 12px 8px; display: grid; grid-template-columns: 36px 1fr 20px; align-items: center; gap: 8px;
+  background: none; border: 0; border-bottom: 1px solid var(--line); text-align: left; cursor: pointer;
+  font: 400 15px/1.5 var(--f-sans); color: var(--ink); transition: background .3s, color .3s;
+}
+.lp-track:hover { background: var(--ground-2); }
+.lp-track-no { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.lp-track.is-current { color: var(--accent); font-weight: 500; }
+.lp-track.is-current .lp-track-no { color: var(--accent); }
+.lp-empty { padding: 20px 8px; font-size: 14px; color: var(--muted); }
+
+/* 재생 중 표시 (이퀄라이저 막대) */
+.lp-eq { display: none; height: 14px; align-items: flex-end; gap: 2px; }
+.lp-track.is-current .lp-eq { display: inline-flex; }
+.lp-eq i { width: 3px; height: 30%; background: var(--accent); border-radius: 1px; }
+.lp.is-playing .lp-track.is-current .lp-eq i { animation: lpEq .9s ease-in-out infinite; }
+.lp-eq i:nth-child(2) { animation-delay: -.3s !important; }
+.lp-eq i:nth-child(3) { animation-delay: -.6s !important; }
+
+/* ---- 패널을 닫아도 계속 재생: 오른쪽 아래 미니 LP ---- */
+.lp-mini {
+  position: fixed; right: 20px; bottom: 20px; z-index: 80;
+  display: none; align-items: center; gap: 12px; max-width: min(260px, calc(100vw - 40px));
+  min-height: 56px; padding: 6px 18px 6px 6px; border-radius: 999px;
+  background: rgba(255, 255, 255, .92); border: 1px solid var(--line); cursor: pointer;
+  box-shadow: 0 16px 36px -18px rgba(214, 51, 108, .6); backdrop-filter: blur(10px);
+  animation: fadeUp .6s var(--ease-out) both;
+}
+.lp.has-track:not(.is-open) .lp-mini { display: inline-flex; }
+.lp-mini-disc {
+  position: relative; flex: 0 0 44px; height: 44px; border-radius: 50%; overflow: hidden;
+  background: repeating-radial-gradient(circle, #1a1519 0 1.2px, #2a2229 1.6px 2.6px);
+  animation: lpSpin 2.4s linear infinite; animation-play-state: paused;
+}
+.lp.is-playing .lp-mini-disc { animation-play-state: running; }
+.lp-mini-img { position: absolute; inset: 30%; width: 40%; height: 40%; border-radius: 50%; }
+.lp-mini-text { font-size: 13px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@keyframes lpSpin { to { transform: rotate(360deg); } }
+@keyframes lpEq { 0%, 100% { height: 25%; } 50% { height: 100%; } }
