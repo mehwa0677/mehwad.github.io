@@ -10,10 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="css/style.css?v=11">
-  <!-- 대문: 이번 방문(탭)에서 처음 열 때만 표시 -->
+  <!-- 대문: 사이트에 처음 들어올 때 + 새로고침할 때마다 표시
+       (멤버·소개 페이지에서 메인으로 돌아올 때는 건너뜀) -->
   <script>
-    try { if (!sessionStorage.getItem('introSeen')) document.documentElement.classList.add('intro-active'); }
-    catch (e) { document.documentElement.classList.add('intro-active'); }
+    (function () {
+      var show = true;
+      try {
+        var nav = performance.getEntriesByType('navigation')[0];
+        var isReload = nav && nav.type === 'reload';
+        var fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
+        show = isReload || !fromSite;
+      } catch (e) {}
+      if (show) document.documentElement.classList.add('intro-active');
+    })();
   </script>
 </head>
 <body>
