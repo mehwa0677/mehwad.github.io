@@ -631,3 +631,8 @@ html.lp-lock { overflow: hidden; }
 .gb-time { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
 .gb-text { margin: 4px 0 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); white-space: pre-wrap; overflow-wrap: anywhere; }
 .gb-empty { padding: 32px 0; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* ---------- 하단: SNS 링크 굵게, THE MUZE 링크 ---------- */
+.footer-col a, .footer-sns a { font-weight: 700; }
+.footer-brand { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+.footer-brand:hover { color: var(--accent); }
