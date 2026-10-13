@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/style.css?v=12">
   <!-- 대문: 사이트에 처음 들어올 때 + 새로고침할 때마다 표시
        (멤버·소개 페이지에서 메인으로 돌아올 때는 건너뜀) -->
   <script>
@@ -418,16 +418,28 @@
     <!-- ============ CONTACT ============ -->
     <section id="contact" class="contact container">
       <h2 class="contact-title en reveal">Visit our<br><em>artist.</em></h2>
-      <form class="contact-form stack reveal" id="contactForm">
-        <p class="body-kr kr">[리센느에게 남기고 싶은 향기를 적어주세요.]</p>
-        <div class="field">
-          <label for="email">EMAIL</label>
-          <div class="field-row">
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-            <button type="submit" class="btn btn-solid">신청하기</button>
+      <!-- ============ GUESTBOOK (방명록) — js/guestbook.js ============ -->
+      <div class="gb reveal">
+        <form class="gb-form" id="gbForm" novalidate>
+          <p class="body-kr kr">[리센느에게 남기고 싶은 향기를 적어주세요.]</p>
+          <div class="gb-row">
+            <label class="sr-only" for="gbName">닉네임</label>
+            <input class="gb-name" id="gbName" name="name" type="text" maxlength="12" placeholder="닉네임" autocomplete="nickname" required>
+            <label class="sr-only" for="gbMsg">메시지</label>
+            <input class="gb-msg" id="gbMsg" name="msg" type="text" maxlength="200" placeholder="응원 메시지를 적어주세요 (200자)" required>
+            <button type="submit" class="btn btn-solid gb-submit">남기기</button>
           </div>
+          <p class="gb-note" id="gbNote" role="status"></p>
+        </form>
+
+        <div class="gb-board">
+          <div class="gb-head">
+            <span class="gb-head-title">GUESTBOOK</span>
+            <span class="gb-count" id="gbCount">0</span>
+          </div>
+          <ul class="gb-list" id="gbList" aria-live="polite"></ul>
         </div>
-      </form>
+      </div>
     </section>
   </main>
 
@@ -467,5 +479,7 @@
   <!-- 앨범 수록곡 · LP 플레이어 -->
   <script src="js/albums.js?v=11"></script>
   <script src="js/player.js?v=11"></script>
+  <!-- 방명록 -->
+  <script src="js/guestbook.js?v=12"></script>
 </body>
 </html>
