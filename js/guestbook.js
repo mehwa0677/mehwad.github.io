@@ -5,7 +5,7 @@
      모든 방문자가 함께 보는 방명록이 됩니다. (설정 방법: guestbook-setup.md)
    ▶ 비워두면 '미리보기 모드' — 글이 내 브라우저에만 저장됩니다.
    ========================================================= */
-const GUESTBOOK_URL = 'https://script.google.com/macros/s/AKfycbwkmxVj-OKH73g_aVLtOdnnJkKiDEjxgCbLgN44bTUYyhAO2g4J60gT3WYacCRbORf6dw/exec';   // 예: 'https://script.google.com/macros/s/……/exec'
+const GUESTBOOK_URL = 'https://script.google.com/macros/s/AKfycbx5HCeu2TUovsGw7i8fJk3jpJi5gizdLq1Vfvt4-OAJmGEItk649E1XVh3G1Xioao0O2g/exec';
 
 (function () {
   const form = document.getElementById('gbForm');
