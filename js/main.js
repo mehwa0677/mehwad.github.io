@@ -171,3 +171,13 @@ if (form) form.addEventListener('submit', (e) => {
 /* 7. 푸터 연도 */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* 8. 오른쪽 클릭 · 이미지 끌어서 저장 막기
+      (방명록 입력칸에서는 붙여넣기 등을 위해 허용) */
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.closest('input, textarea')) return;
+  e.preventDefault();
+});
+document.addEventListener('dragstart', (e) => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
