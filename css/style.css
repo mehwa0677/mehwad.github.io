@@ -586,3 +586,48 @@ html.lp-lock { overflow: hidden; }
   transition: transform .4s var(--ease-out);
 }
 .nav-goods:hover .nav-icon { transform: translateY(-2px) rotate(-8deg); }
+
+/* =========================================================
+   GUESTBOOK (방명록) — js/guestbook.js
+   ========================================================= */
+.contact { align-items: start; }
+.gb { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.gb-form { display: flex; flex-direction: column; gap: 16px; }
+.gb-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.gb-row input {
+  min-height: 52px; padding: 0 20px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--ground); color: var(--ink); font: 400 15px var(--f-sans); outline: none;
+  transition: border-color .3s, box-shadow .3s;
+}
+.gb-row input::placeholder { color: #B394A2; }
+.gb-row input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(214, 51, 108, .12); }
+.gb-name { flex: 0 1 150px; min-width: 0; }
+.gb-msg { flex: 1 1 260px; min-width: 0; }
+.gb-submit:disabled { opacity: .6; cursor: wait; }
+.gb-note { margin: 0; font-size: 12px; color: var(--muted); min-height: 1em; }
+.gb-note.is-error { color: var(--accent); }
+
+.gb-board { border: 1px solid var(--line); border-radius: 20px; background: var(--ground-2); overflow: hidden; }
+.gb-head {
+  display: flex; justify-content: space-between; align-items: center; padding: 16px 22px;
+  border-bottom: 1px solid var(--line);
+}
+.gb-head-title { font-size: 11px; font-weight: 500; letter-spacing: .28em; color: var(--accent); }
+.gb-count { min-width: 28px; padding: 3px 10px; border-radius: 999px; background: var(--ground); font-size: 12px; font-weight: 500; text-align: center; color: var(--ink); }
+
+.gb-list {
+  list-style: none; margin: 0; padding: 4px 22px; max-height: 440px; overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: var(--accent-soft) transparent;
+}
+.gb-item { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); animation: fadeUp .5s var(--ease-out) both; }
+.gb-item:last-child { border-bottom: 0; }
+.gb-avatar {
+  flex: 0 0 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent); font: 600 15px var(--f-sans);
+}
+.gb-body { min-width: 0; flex: 1; }
+.gb-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.gb-nick { font-size: 14px; font-weight: 600; color: var(--ink); }
+.gb-time { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.gb-text { margin: 4px 0 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); white-space: pre-wrap; overflow-wrap: anywhere; }
+.gb-empty { padding: 32px 0; text-align: center; font-size: 14px; color: var(--muted); }
