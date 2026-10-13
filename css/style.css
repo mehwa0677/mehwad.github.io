@@ -636,3 +636,19 @@ html.lp-lock { overflow: hidden; }
 .footer-col a, .footer-sns a { font-weight: 700; }
 .footer-brand { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
 .footer-brand:hover { color: var(--accent); }
+
+/* =========================================================
+   ABOUT 갤러리 — 단체사진 (가로 1 + 세로 2)
+   ========================================================= */
+.about-gallery { margin-top: clamp(80px, 10vw, 140px); display: flex; flex-direction: column; gap: 28px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); }
+.gallery-grid figure { margin: 0; border-radius: 4px; }
+.gallery-wide { grid-column: 1 / -1; aspect-ratio: 16 / 9; }   /* 가로형: 한 줄 전체 */
+.gallery-tall { aspect-ratio: 3 / 4; }                         /* 세로형: 반씩 나란히 */
+.gallery-grid .ph-media { transition: transform 1.2s var(--ease-out); }
+.gallery-grid figure:hover .ph-media { transform: scale(1.04); }
+@media (min-width: 861px) {
+  /* 데스크톱: 가로 1장 + 세로 2장을 한 줄에 */
+  .gallery-grid { grid-template-columns: 2fr 1fr 1fr; }
+  .gallery-wide { grid-column: auto; aspect-ratio: auto; }
+}
